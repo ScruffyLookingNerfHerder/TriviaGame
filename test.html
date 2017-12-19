@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class= "Questions">
+    <form name="quiz" method="post" name="buttons" id="quizid" onsubmit="return true">
+      <h1 class = "questionheader"> QUESTION QUESTION </h1>
+      <input id= "answer" type = "radio" name = "group1" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group1" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group1" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group1" value= "correct" > correct <br>
+
+      <h1 class = "questionheader"> QUESTION QUESTION </h1>
+      <input id= "answer" type = "radio" name = "group2" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group2" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group2" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group2" value= "correct" > correct <br>
+
+      <h1 class = "questionheader"> QUESTION QUESTION </h1>
+      <input id= "answer" type = "radio" name = "group3" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group3" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group3" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group3" value= "correct" > correct <br>
+
+      <h1 class = "questionheader"> QUESTION QUESTION </h1>
+      <input id= "answer" type = "radio" name = "group4" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group4" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group4" value= "wrong" > answer <br>
+      <input id= "answer" type = "radio" name = "group4" value= "correct" > correct <br>
+
+      <button class = "submit" onclick= "return handleClick();" type= "submit"> Submit </button>
+    </form>
+  </div>
+  <div class = "results"></div>
+
+</body>
+
+<script>
+var amountCorrect= 0;
+  function handleClick(){
+    
+    for(var i = 1; i <=4; i++){
+      var radios = document.getElementsByName('group' + i);
+      for(var j = 0; j < radios.length; j++) {
+        var radio = radios[j];
+        if(radio.value  == 'correct' && radio.checked){
+          amountCorrect++;
+        }
+      }
+    }
+
+  }
+
+document.getElementsByClassName('results').innerhtml="Correct: " + amountCorrect;
+  </script>
+</html>
