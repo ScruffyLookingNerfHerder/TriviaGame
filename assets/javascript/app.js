@@ -25,6 +25,7 @@ function stop (){ //stops the game. This function is run when the user clicks th
 
 function run (){ //meat of the game
   document.getElementById('startbutton').style.display="none"; //hides the start button when the game starts
+  $(".Questionscontainer").empty(); //empties the container for restart
   number = 30; //sets countdown number
   intervalId = setInterval(decrement, 1000); //starts countdown
   //there's gotta be a better, cleaner way to do this. Or mayber there isn't, idk it works right now so lets just go with it
