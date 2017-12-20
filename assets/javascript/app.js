@@ -10,12 +10,17 @@ var unanswered;
 function game () { // runs the game
   $("#startbutton").on("click", run);
 
+
 }
 
 function stop (){ //stops the game. This function is run when the user clicks the done button and when the timer runs out
   clearInterval(intervalId);
+  handleClick();
   $(".Questions").empty();
   $(".countdown").empty();
+  $(".Questionscontainer").empty();
+  document.getElementById('startbutton').style.display="inline";
+  printresults();
 }
 
 function run (){ //meat of the game
@@ -101,20 +106,23 @@ function decrement (){ //counts down and resets when it hits 0
     handleClick();
     // printresults();
     stop();
-    $(".Questions").empty();
-    $(".Questionscontainer").empty();
-    document.getElementById('startbutton').style.display="block";
+    // $(".Questions").empty();
+    // $(".Questionscontainer").empty();
+    // document.getElementById('startbutton').style.display="inline";
+    // printresults();
   }
 }
 
 function submit(){ //runs the handleClick when button is pressed
-  $("#donebutton").on("click", handleClick);
+
+  $("#donebutton").on("click", stop);
+
 
 }
 
 
 function handleClick(){ //loops through all input answers, tallys incorrect, correct, and calculates unanaswered
-
+  number = 0;
   correctanswers=0;
   wronganswers=0;
   unanswered=0;
@@ -159,12 +167,12 @@ function printresults (){ //why doesn't this work?
 
 
 
-function stopgame () { //stops the game when button is pressed
-  $("#donebutton").on("click", stop);
+// function stopgame () { //stops the game when button is pressed
+//   $("#donebutton").on("click", stop);
+// }
 
-}
 
 //calls
 game();
 // submit();
-stopgame();
+// stopgame();
